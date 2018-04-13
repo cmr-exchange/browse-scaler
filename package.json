@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "@cljs-oss/module-deps": "^1.1.1",
+    "aws-sdk": "^2.173.0",
+    "sharp": "^0.20.0",
+    "shelljs": "^0.8.0"
+  }
+}
