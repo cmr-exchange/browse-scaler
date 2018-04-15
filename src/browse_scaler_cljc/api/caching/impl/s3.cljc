@@ -4,7 +4,8 @@
     [cljs.pprint :refer [pprint]]
     [clojure.string :as string]
     [cljs.pprint :as pprint]
-    [promesa.core :as p])
+    [promesa.core :as p]
+    [browse-scaler.util :as util])
   (:require-macros [cljs.core.async.macros :refer [go]]))
 
 (defonce AWS (js/require "aws-sdk"))
@@ -25,19 +26,19 @@
 
 (defn cache-in-s3
   "Save a file into S3"
-  [path]
+  [key path]
   (let [key (last (string/split path #"/"))]
     (println "s3/put-object  " s3-bucket-name " " key)
     (s3-client/waitFor "putObject" (clj->js {:Bucket s3-bucket-name :Key key}))
     (s3-url key)))
 
 (defn get-from-s3
-  [path-or-key]
+  [key]
   (let [key (last (string/split path-or-key #"/"))]
     (s3-client/waitFor "getObject" (clj->js {:Bucket s3-bucket-name :Key key}))))
 
 (defn exists-in-s3?
-  [path-or-key]
+  [key]
   (let [params (clj->js {:Bucket s3-bucket-name :Key key})
         key (last (string/split path-or-key #"/"))]
     (s3-client/waitFor "objectExists" params true?)))

@@ -9,15 +9,15 @@
   "Functions for interfacing with the image cache service"
 
   (cache-item
-   [this item]
+   [this key item]
    "Put item into cache for later retrieval")
 
   (get-item
-   [this item]
+   [this key]
    "Given a path or key, retrieve corresponding item from cache")
 
   (exists?
-   [this item]
+   [this key]
    "Given a path or key, find whether or not an object is cached"))
 
 (extend ImageCache
