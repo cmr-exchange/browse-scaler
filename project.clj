@@ -21,20 +21,7 @@
       :invoke browse-scaler.core/handle-event}]}
   :cljsbuild
    {:repl-listen-port 9000
-    :builds [
-             ;{:id "browse-scaler"
-             ; :source-paths ["src"]
-             ; :compiler {:install-deps true
-             ;            :npm-deps {:aws-sdk "2.173.0"
-             ;                       :sharp "0.20.0"}
-             ;            :output-to     "target/node/browse_scaler_cljc.js"
-             ;            :output-dir    "resources/public/js/out"
-             ;            :source-map    true
-             ;            :target        :nodejs
-             ;            :language-in   :ecmascript6
-             ;            :optimizations :none
-             ;            :main browse-scaler.handler}}
-             {:id "lambda-build"
+    :builds [{:id "lambda-build"
               :source-paths ["src"]
               :compiler {:output-to     "app/main.js"
                          :output-dir    "app"
@@ -48,4 +35,4 @@
             "node-repl"
             ^{:doc "Start a Node.js-based Clojurescript REPL"}
             ["trampoline" "run" "-m" "clojure.main"
-             "dev-resources/scripts/node_repl.clj"]})
+             "repl/node_repl.clj"]})
