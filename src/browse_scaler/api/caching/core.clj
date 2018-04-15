@@ -3,7 +3,8 @@
    [browse-scaler.api.caching.impl.s3 :as s3]
    [browse-scaler.api.caching.impl.mem :as mem])
   (:import
-   (browse-scaler.api.caching.impl.s3 S3Client)))
+   (browse-scaler.api.caching.impl.s3 S3Client)
+   (browse-scaler.api.caching.impl.mem MemoryCache)))
 
 (defprotocol ImageCache
   "Functions for interfacing with the image cache service"
