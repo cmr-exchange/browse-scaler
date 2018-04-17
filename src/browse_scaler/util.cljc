@@ -4,7 +4,8 @@
     [cljs.nodejs :as nodejs]
     [cljs.pprint :refer [pprint]]
     [cljs.reader :refer [read-string]]
-    [clojure.string :as string])
+    [clojure.string :as string]
+    [cljs-time.core :as time])
   (:require-macros [cljs.core.async.macros :refer [go]]))
 
 (def fs (nodejs/require "fs"))
@@ -20,3 +21,9 @@
 (def cmr-search-root (:cmr-search-root config))
 (def browse-rel "http://esipfed.org/ns/fedsearch/1.1/browse#")
 (def tmp-image-dir "/tmp")
+
+(defn is-image-expired?
+  "Return true or false based on if image is over an hour old in cache"
+  [created-at]
+  (let [age-in-hours (time/hours (time/interval created-at (time/now)))]
+    (>= 1 age-in-hours)))
