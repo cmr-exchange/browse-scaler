@@ -1,4 +1,4 @@
-# browse-scaler
+# browse-scaler [![Build Status](https://travis-ci.org/cmr-exchange/browse-scaler.svg?branch=master)](https://travis-ci.org/cmr-exchange/browse-scaler)
 A Clojurescript implementation of an image-scaling service for AWS Lambda
 
 ## To build:
