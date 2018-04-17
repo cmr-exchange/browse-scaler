@@ -6,6 +6,7 @@
                  [org.clojure/clojurescript "1.10.238"]
                  [org.clojure/core.async "0.3.442"]
                  [cljs-http "0.1.45"]
+                 [com.andrewmcveigh/cljs-time "0.5.2"]
                  [funcool/promesa "1.9.0"]]
   :plugins [[lein-npm "0.6.2"]
             [lein-cljsbuild "1.1.7"]]
